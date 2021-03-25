@@ -1,0 +1,65 @@
+.appHeader{
+    display: flex;
+    align-items: center;
+    background-color: rgb(44, 156, 141);
+    height: fit-content;
+    margin-bottom: 5px;
+}
+
+h3 {
+    color: black;
+}
+
+.list{
+    display: block;
+    align-items: center;
+    height: fit-content;
+    margin-bottom: 5px;
+}
+
+.todo-list {
+    height: fit-content;
+    color: white;
+}
+
+.add-todo{
+    display:flex;
+    align-items: center;
+    
+}
+.add-todo input {
+    margin-right:5px;
+    padding:0;    
+    width: 200px;
+}
+
+#new-task-button{
+    border-radius: 100%;
+    border:0;
+    padding:0;
+    display: flex;
+}
+#add-task-button img {
+    height: 25px;
+    margin: 2px;
+}
+
+.to-do-division {
+    display: flex;
+    align-items: center;
+}
+
+.to-do-name {
+    width: 200px;
+    height: fit-content;
+    margin: 5px;
+}
+
+.to-do-name p{
+    height: 15px;
+}
+
+.delete-button img {
+    height: 20px;
+   
+}
