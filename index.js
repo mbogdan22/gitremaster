@@ -1,73 +1,72 @@
 console.log("To do app homework")
 
-const listToDo = document.querySelector(".list")
+const listToDo = document.querySelector(".list"); 
 
 fetch('https://simple-json-server-scit.herokuapp.com/todo', {
-    method: "POST",
-    headers: {
-        'Content-Type': 'application/json'
-        },
-    body: JSON.stringify({
-        id:"mbogdan",
-        todo:[]
-    })
-}).then(getData);
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+            },
+        body: JSON.stringify({
+            id:"mbogdan",
+            todo:[]
+        })
+    }).then(getData);
 
-function  fetchResponse(response) {
+function handleFetchResponse(response) { 
     return response.json();
 }
-
-function getData() {
+function getData(){
     fetch("https://simple-json-server-scit.herokuapp.com/todo/mbogdan")
-    .then(getResponse)
-    .then(renderToDoList)
+    .then(handleFetchResponse)
+    .then(renderList)
     .catch(()=>{});
 }
 
-document.getElementById("add-task-button").addEventListener("click", addToDo);
+document.getElementById("add-task-button").addEventListener("click",newTask);
 
-function addToDo(){
+function newTask(){
     fetch("https://simple-json-server-scit.herokuapp.com/todo/mbogdan")
-    .then(getRespons)
-    .then(renderToDoList)
+    .then(handleFetchResponse)
+    .then(updateList)
     .then(updateHost)
 }
 
-function updateList(response) {
-    let listData = response
-    const input = document.getElementById("todo-input")
+function updateList(response){
+    let listData = response;
+    const input = document.getElementById("todo-input");
     if(input.value){
-        let createToDo = {
-            cheked: false, 
+        let newToDo = {
+            checked:false,
             item: input.value
-        }
-        listData.todo.push(createToDo);
-        input.value ="";
+            }
+        listData.todo.push(newToDo);
+        input.value="";
     } else {
-        window.alert("Input another task!");
-    }
-    return listData
+        window.alert("Type new Task");
+        }
+    return listData;
 }
 
 function updateHost(newListData) {
-    fetch("https://simple-json-server-scit.herokuapp.com/todo/mbogdan", {
-    method: "PUT" ,
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(newListData)
-}).then(getData);
+    fetch('https://simple-json-server-scit.herokuapp.com/todo/mbogdan', {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+            },
+        body: JSON.stringify(newListData)
+    }).then(getData);
 }
 
-function showList(response){
-    toDoListDiv.innerHTML = "";
+function renderList(response){
+    listToDo.innerHTML="";
     for (element of response.todo) {
-        renderTask(elemnt,response.todo.indexOf(element));
-    }
-    
+        renderTask(element,response.todo.indexOf(element));
+    } 
 }
 
-function renderTask(element,index) {
+function renderTask(element,index){
+
     const toDoDiv = document.createElement("div");
     toDoDiv.classList.add("to-do-division");
     toDoDiv.setAttribute("id",index);
@@ -96,41 +95,42 @@ function renderTask(element,index) {
     toDoDiv.appendChild(toDoCheckBox);
     toDoDiv.appendChild(toDoName);
     toDoDiv.appendChild(toDoDelete);
-    toDoListDiv.prepend(toDoDiv);
+    listToDo
+.prepend(toDoDiv);
 }
 
-function updateStatus() {
+function changeStatus(){
     fetch("https://simple-json-server-scit.herokuapp.com/todo/mbogdan")
-    .then(fetchResponse)
-    .then(updateTasks)
+    .then(handleFetchResponse)
+    .then(updateTask)
 }
 
-function updateTasks(response){
-    let payload = response;
+function updateTask(response){
+    let listData = response;
     let box = document.querySelectorAll(":checked");
-    for (const element of payload.todo) {
+    for (const element of listData.todo) {
         element.checked = false;
     }
     for (const element of box) {
-        payload.todo[element.parentNode.id].checked = true;
+        listData.todo[element.parentNode.id].checked = true;
     }
-    updateServer(payload);
+    updateHost(listData);
 }
 
-function eraseTask(response) {
+function deleteTask(){
     this.parentNode.remove();
     fetch("https://simple-json-server-scit.herokuapp.com/todo/mbogdan")
-    .then(fetchResponse)
+    .then(handleFetchResponse)
     .then(removeTask)
 }
 
 function removeTask(response){
-    let payload = response;
-    let newPayloadArray =[];
+    let listData = response;
+    let newListDataArray =[];
     let remainingTasksList = document.querySelectorAll(".to-do-division");
     for (const element of remainingTasksList) {
-        newPayloadArray.push(payload.todo[element.id]);
+        newListDataArray.push(listData.todo[element.id]);
         }
-    payload.todo = newPayloadArray.reverse();
-    updateServer(payload);
+    listData.todo = newListDataArray.reverse();
+    updateHost(listData);
 }
