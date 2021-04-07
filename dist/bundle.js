@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("Entry point to webpack");const o=Math.floor(20*Math.random());console.log(o);const n=`${o}px`;console.log(n);const t=`${o}%`;console.log(t)})();
