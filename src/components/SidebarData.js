@@ -2,6 +2,7 @@ import React from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
+import * as ImIcons from "react-icons/im";
 
 export const SidebarData = [
   {
@@ -25,7 +26,7 @@ export const SidebarData = [
   {
     title: "What i studied",
     path: "/Studies",
-    icon: <AiIcons.AiFillHome />,
+    icon: <ImIcons.ImBook />,
     cName: "nav-text",
   },
   {
