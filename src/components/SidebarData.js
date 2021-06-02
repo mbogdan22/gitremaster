@@ -17,12 +17,12 @@ export const SidebarData = [
     icon: <FaIcons.FaBuffer />,
     cName: "nav-text",
   },
-  {
-    title: "Show off page",
-    path: "/ShowOffPage",
-    icon: <FaIcons.FaBriefcaseMedical />,
-    cName: "nav-text",
-  },
+  // {
+  //   title: "Show off page",
+  //   path: "/ShowOffPage",
+  //   icon: <FaIcons.FaBriefcaseMedical />,
+  //   cName: "nav-text",
+  // },
   {
     title: "What i studied",
     path: "/Studies",

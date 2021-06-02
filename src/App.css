@@ -2,30 +2,49 @@
 
 * {
   margin: 0;
+  padding: 0;
   font-family: "Lato", sens-serif;
 }
 
-.Home,
 .ShowOffPage {
   display: flex;
   height: 90vh;
   font-size: 3rem;
   align-items: center;
   justify-content: center;
+  background-image: url(https://miro.medium.com/max/1524/1*eBZfXMuE72uCDtjUZEzZHQ.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /* contact start */
 
 .Contact {
-  display: flex;
-  font-size: 3rem;
-  background-image: url(http://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background-image: url(https://i.pinimg.com/originals/83/4d/72/834d72ef32d84b400266a4aa6661ff31.gif);
   background-size: cover;
-  height: 100vh;
+  border-bottom: 130px solid rgb(15, 123, 42);
 }
 .myPhoto {
   height: 300px;
   border-radius: 50%;
-  border: 5px solid rgba(41, 102, 23, 0.583);
+  border: 5px solid rgba(0, 0, 0, 0.446);
+}
+input,
+textarea {
+  background-color: #81bf81;
+}
+.email-container {
+  background-color: rgb(90, 145, 79);
+  border: 10px solid rgba(0, 0, 0, 0.446);
+}
+
+li a {
+  color: rgb(94, 255, 0);
+  font-size: 2rem;
+  font-weight: bolder;
 }
 /* contact ends */
 
@@ -61,78 +80,18 @@
 /* home starts */
 
 .Home {
-  --clr-neon: hsl(100 40% 50%);
-  --clr-bg: hsl(500 10% 10%);
-}
-
-.Home,
-.Home::before,
-.Home::after {
-  box-sizing: border-box;
-}
-
-.neon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(42, 87, 19);
+  height: 90vh;
   font-size: 3rem;
-
-  display: inline-block;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--clr-neon);
-  border: var(--clr-neon) 0.125em solid;
-  padding: 0.25em 1em;
-  border-radius: 0.25em;
-
-  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-
-  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
-
-  position: relative;
+  background-image: url(https://www.trip.me/old-wp-content/2013/11/Green-waterfalls.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: justify;
 }
-
-.neon-button::before {
-  pointer-events: none;
-  content: "";
-  position: absolute;
-  background: var(--clr-neon);
-  top: 120%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
-  filter: blur(1em);
-  opacity: 0.7;
-}
-
-.neon-button::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  box-shadow: 0 0 2em 0.5em var(--clr-neon);
-  opacity: 0;
-  background-color: var(--clr-neon);
-  z-index: -1;
-  transition: opacity 100ms linear;
-}
-
-.neon-button:hover,
-.neon-button:focus {
-  color: var(--clr-bg);
-  text-shadow: none;
-}
-
-.neon-button:hover::before,
-.neon-button:focus::before {
-  opacity: 1;
-}
-.neon-button:hover::after,
-.neon-button:focus::after {
-  opacity: 1;
-}
-
 /* home ends */
 
 /* about me start */
@@ -166,3 +125,154 @@
 }
 
 /* about me ends */
+
+/* ///////////////////////////////////// */
+
+@media (max-width: 667px) {
+  .Studies {
+    display: list-item;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .Studies {
+    display: list-item;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+@media (max-width: 375px) {
+  .Studies {
+    display: list-item;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+@media (max-width: 667px) {
+  .Home {
+    background-image: none;
+    background-color: black;
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 375px) {
+  .Contact {
+    display: list-item;
+    border: 0;
+    padding: 0;
+    font-size: 1px;
+  }
+}
+
+@media (max-width: 667px) {
+  .myPhoto {
+    height: 250px;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.446);
+  }
+}
+
+@media (max-width: 375px) {
+  .AboutMe {
+    display: list-item;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 667px) {
+  .AboutMe {
+    margin: 0px;
+    padding: 0px;
+    font-size: 2rem;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 667px) {
+  .photosAbout {
+    display: grid;
+    width: 70%;
+    height: 70%;
+    padding: 0px;
+    border: 0px;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 667px) {
+  .aboutMeLeftWrite {
+    display: grid;
+    font-size: 2rem;
+    padding: 0px;
+    border: 0px;
+  }
+}
+@media (max-width: 667px) {
+  #about-hiden-div {
+    display: none;
+  }
+}
+@media (max-width: 375px) {
+  #about-hiden-div {
+    display: none;
+  }
+}
+@media (orientation: portrait) and (max-width: 667px) {
+  .photosAbout {
+    display: grid;
+    width: 70%;
+    height: 70%;
+    padding: 0px;
+    border: 0px;
+    font-size: 2rem;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 667px) {
+  .aboutMeLeftWrite {
+    display: grid;
+    font-size: 2rem;
+    padding: 0px;
+    border: 0px;
+  }
+}
+@media (orientation: landscape) and (max-width: 1024px) {
+  .photosAbout {
+    display: grid;
+    width: 70%;
+    height: 70%;
+    padding: 0px;
+    border: 0px;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+  .aboutMeLeftWrite {
+    display: grid;
+    align-items: center;
+    font-size: 2rem;
+    padding: 0px;
+    border: 0px;
+  }
+}
+@media (orientation: portrait) and (max-width: 768px) {
+  .photosAbout {
+    display: grid;
+    width: 70%;
+    height: 70%;
+    padding: 0px;
+    border: 0px;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 768px) {
+  .aboutMeLeftWrite {
+    display: grid;
+    font-size: 2rem;
+    padding: 0px;
+    border: 0px;
+  }
+}

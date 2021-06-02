@@ -1,4 +1,6 @@
 import React from "react";
+import "@brainhubeu/react-carousel/lib/style.css";
+import Carousel, { autoplayPlugin } from "@brainhubeu/react-carousel";
 
 function AboutMe() {
   return (
@@ -13,14 +15,33 @@ function AboutMe() {
           className="photosAbout"
         ></img>
       </div>
-      <div>
-        <img
-          src="./images/bogf.jpg"
-          alt="going inside cage"
-          className="photosAbout"
-        ></img>
+      <div
+        id="about-hiden-div"
+        className="carousel-container"
+        style={{
+          width: "600px",
+          margin: "auto",
+          padding: "50px",
+        }}
+      >
+        <Carousel
+          plugins={[
+            "infinite",
+            {
+              resolve: autoplayPlugin,
+              options: {
+                interval: 2000,
+              },
+            },
+          ]}
+          animationSpeed={1000}
+        >
+          <img src="./images/bogf.JPG" />
+          <img src="./images/fighting.PNG" />
+          <img src="./images/training.jpg" />
+        </Carousel>
       </div>
-      <div>
+      <div id="about-hiden-div">
         <h3>I have a passion for full contact sports!</h3>
       </div>
       <div>
